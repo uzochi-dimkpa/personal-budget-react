@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import chart from 'chart';
 
 import train from '../images/train.gif';
 import red_alert from '../images/red-alert.gif';
@@ -17,6 +18,27 @@ const retrieveData = () => {
         .then(res => console.log(res.data))
         .catch(err => console.log(err));
 };
+
+// ngOnInit(): void {
+//     this.http.get('http://localhost:3000/budget')
+//     .subscribe((res: any) => {
+//       // debugger;
+//       console.log(res);
+//       this.createChart(res);
+//     });
+
+//     this.dataService.ngOnInit();
+//   }
+
+  function createChart(data_source) {
+    // var ctx = document.getElementById("myChart").getContext("2d");
+    var ctx = document.getElementById("myChart") as HTMLCanvasElement;
+    // debugger; console.log(ctx);
+    var myDoughnutChart = new Chart(ctx, {
+        type: 'doughnut',
+        data: data_source,
+    });
+  };
 
 function HomePage(props) {
 // importing json data using props
@@ -118,9 +140,9 @@ function HomePage(props) {
                     <!-- <canvas id="myChart" width="400" height="400"></canvas> --> */}
 
                     {/* <!-- <div style="position: relative; padding-top: 50%; padding-left: 50%;"> --> */}
-                        {/* <div class="chart-container" style="position: relative; height:40vh; width:80vw">
+                        <div class="chart-container" style={{position: "relative;", height: "40vh;", width: "80vw;"}}>
                             <canvas id="myChart"></canvas>
-                        </div> */}
+                        </div>
                     {/* <!-- </div> --> */}
                 </p>
             </article>

@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import json_data from './data/data.json';
 
 import {
   BrowserRouter as Router,
@@ -25,7 +26,7 @@ function App() {
         <Routes>
           <Route path="/about" element={<AboutPage/>} exact/>
           <Route path="/login" element={<LoginPage/>} exact/>
-          <Route path="/" element={<HomePage/>} exact/>
+          <Route path="/" element={<HomePage data={json_data}/>} exact/>
         </Routes>
       </div>
       

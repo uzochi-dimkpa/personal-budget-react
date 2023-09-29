@@ -1,6 +1,32 @@
 import React from 'react';
+import axios from 'axios';
 
-function HomePage() {
+
+// using axios
+function getData() {
+    axios
+        .get("http://localhost:3001/budget")
+        .then(res => console.log(res.data))
+        .catch(err => console.log(err));
+};
+const retrieveData = () => {
+    axios
+        .get("http://localhost:3001/budget")
+        .then(res => console.log(res.data))
+        .catch(err => console.log(err));
+}
+
+function HomePage(props) {
+// importing json data using props
+/*
+  const {datasets, labels} = props.data;
+  console.log(datasets[0].data);
+  console.log(labels);
+*/
+
+// using axios
+  getData();
+
   return (
     // <div>
     //   HomePage

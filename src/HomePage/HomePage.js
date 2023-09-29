@@ -1,6 +1,8 @@
 import React from 'react';
 import axios from 'axios';
 
+import train from '../images/train.gif';
+import red_alert from '../images/red-alert.gif';
 
 // using axios
 function getData() {
@@ -14,7 +16,7 @@ const retrieveData = () => {
         .get("http://localhost:3001/budget")
         .then(res => console.log(res.data))
         .catch(err => console.log(err));
-}
+};
 
 function HomePage(props) {
 // importing json data using props
@@ -47,6 +49,7 @@ function HomePage(props) {
                 </p>
                 {/* <!-- This is an A11y Change --> */}
                 {/* <img src="images/train.gif" alt="train" style="width:100px; height:90px;"></img> */}
+                <img src={train} alt="train" style={{width: "100px", height: "90px"}}/>
             </div>
     
             <div className="text-box">
@@ -56,6 +59,7 @@ function HomePage(props) {
                 </p>
                 {/* <!-- This is an A11y Change --> */}
                 {/* <img src="images/red-alert.gif" alt="red alert warning danger" style="width:70px; height:70px"></img> */}
+                <img src={red_alert} alt="red alert warning danger" style={{width: "70px", height: "70px"}}/>
             </div>
     
             <div className="text-box">

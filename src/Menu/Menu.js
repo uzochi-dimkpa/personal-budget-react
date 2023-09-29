@@ -2,6 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 // import '../index.css';
 
+import yt_logo from '../images/yt-logo.gif';
+
 function Menu() {
   return (
     // <div>
@@ -17,6 +19,7 @@ function Menu() {
             <li><Link to="https://youtube.com" rel="nofollow">YouTube</Link></li>
             {/* <!-- This is an SEO Change --> */}
             {/* <li><img src="images/yt-logo.gif" alt="YouTube logo" style="width:40px; height:40px"></img></li> */}
+            <img src={yt_logo} alt="YouTube logo" style={{width: "40px", height: "40px"}}/>
         </ul>
     </div>
   );

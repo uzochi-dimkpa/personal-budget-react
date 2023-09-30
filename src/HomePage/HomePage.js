@@ -1,9 +1,13 @@
 import React from 'react';
 import axios from 'axios';
-import chart from 'chart';
 
 import train from '../images/train.gif';
 import red_alert from '../images/red-alert.gif';
+
+import PieChart from '../PieChart/PieChart';
+import D3Chart from '../D3Chart/D3Chart';
+
+import json_data from '../data/data.json'
 
 // using axios
 function getData() {
@@ -30,17 +34,18 @@ const retrieveData = () => {
 //     this.dataService.ngOnInit();
 //   }
 
-  function createChart(data_source) {
-    // var ctx = document.getElementById("myChart").getContext("2d");
-    var ctx = document.getElementById("myChart") as HTMLCanvasElement;
-    // debugger; console.log(ctx);
-    var myDoughnutChart = new Chart(ctx, {
-        type: 'doughnut',
-        data: data_source,
-    });
-  };
+// function generatePieChart() {
+//     axios
+//         .get('http://localhost:3001/budget')
+//         .then(res => {
+//             console.log(res.data);
+//             return (
+//             <PieChart data={res.data}/>
+//             );
+//         });
+// };
 
-function HomePage(props) {
+function HomePage( /* props */ ) {
 // importing json data using props
 /*
   const {datasets, labels} = props.data;
@@ -49,9 +54,26 @@ function HomePage(props) {
 */
 
 // using axios
-  getData();
+//   getData();
+// generatePieChart();
+
+//   render (
+//     generatePieChart()
+//   );
+
+  const final_data = [
+    {label: json_data.labels[0], value: json_data.datasets[0].data[0]},
+    {label: json_data.labels[1], value: json_data.datasets[0].data[1]},
+    {label: json_data.labels[2], value: json_data.datasets[0].data[2]},
+    {label: json_data.labels[3], value: json_data.datasets[0].data[3]},
+    {label: json_data.labels[4], value: json_data.datasets[0].data[4]},
+    {label: json_data.labels[5], value: json_data.datasets[0].data[5]},
+    {label: json_data.labels[6], value: json_data.datasets[0].data[6]},
+    {label: json_data.labels[7], value: json_data.datasets[0].data[7]}
+  ]
 
   return (
+    // generatePieChart(),
     // <div>
     //   HomePage
     // </div>
@@ -140,12 +162,15 @@ function HomePage(props) {
                     <!-- <canvas id="myChart" width="400" height="400"></canvas> --> */}
 
                     {/* <!-- <div style="position: relative; padding-top: 50%; padding-left: 50%;"> --> */}
-                        <div class="chart-container" style={{position: "relative;", height: "40vh;", width: "80vw;"}}>
+                        {/* <div class="chart-container" style={{position: "relative;", height: "40vh;", width: "80vw;"}}>
                             <canvas id="myChart"></canvas>
-                        </div>
+                        </div> */}
+                        {/* <Pie data={}/> */}
                     {/* <!-- </div> --> */}
                 </p>
             </article>
+            <PieChart/>
+            <D3Chart data={final_data} innerRadius={0} outerRadius={350}/>
             </main>
 
         </div>
